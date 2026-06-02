@@ -14,4 +14,10 @@ describe('contact and location section', () => {
     expect(source).toContain('officeLocation.mapUrl &&');
     expect(source).toContain('label="Ver no mapa"');
   });
+
+  it('renders demonstration contacts as non-actionable text', () => {
+    expect(source).toContain('Exemplo para demonstração · não acionável');
+    expect(source).toContain('demonstrationContacts.map');
+    expect(source).not.toContain('demonstrationContacts.map((contact) => <ContactLink');
+  });
 });

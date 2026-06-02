@@ -1,0 +1,72 @@
+{
+  "project": "advogada-larissa",
+  "date": "2026-06-02",
+  "scope": ["src", "public", "docs", "local-http-smoke-check"],
+  "status": "improvements-required-before-final-publication",
+  "metrics": {
+    "sourceFiles": 14,
+    "sourceLines": 1026,
+    "astroFiles": 9,
+    "cssFiles": 2,
+    "cssTokenReferences": 100,
+    "publicImages": 1,
+    "currentLogoBytes": 726004,
+    "generatedRoutes": 5,
+    "passingTests": 16
+  },
+  "qualityGates": {
+    "lint": "pass",
+    "typecheck": "pass",
+    "tests": "pass",
+    "build": "pass"
+  },
+  "smokeChecks": {
+    "/": 200,
+    "/images/logo-advogada-larissa.png": 200,
+    "/politica-de-privacidade/": 404,
+    "/robots.txt": 404,
+    "/favicon.svg": 404
+  },
+  "findings": [
+    {
+      "priority": "P0",
+      "id": "official-contacts-missing",
+      "summary": "Official contact channels are not configured.",
+      "epic": "3.1"
+    },
+    {
+      "priority": "P0",
+      "id": "privacy-route-missing",
+      "summary": "The privacy policy route returns HTTP 404.",
+      "epic": "3.2"
+    },
+    {
+      "priority": "P1",
+      "id": "editorial-photo-used-as-logo",
+      "summary": "A horizontal bookshelf photo with capture marks is being cropped into the header logo slot.",
+      "epic": "3.1"
+    },
+    {
+      "priority": "P1",
+      "id": "light-background-eyebrow-contrast",
+      "summary": "Secondary gold text reaches only 2.14:1 on the default background and 2.02:1 on the accent background.",
+      "epic": "3.3"
+    },
+    {
+      "priority": "P1",
+      "id": "navigation-and-footer-incomplete",
+      "summary": "The primary navigation omits the service process anchor and the footer omits expected navigation and privacy access.",
+      "epic": "3.2"
+    },
+    {
+      "priority": "P2",
+      "id": "technical-seo-incomplete",
+      "summary": "robots.txt, favicon, sitemap, canonical and sharing metadata remain pending.",
+      "epic": "3.2"
+    }
+  ],
+  "limitations": [
+    "Automated rendered viewport validation could not run because the integrated browser was unavailable.",
+    "Manual mobile, tablet and desktop validation remains required before final deployment."
+  ]
+}

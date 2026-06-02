@@ -1,0 +1,37 @@
+---
+import Footer from '../components/organisms/Footer.astro';
+import Header from '../components/organisms/Header.astro';
+import { siteContent } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={`Termos de Uso | ${siteContent.professionalName}`}
+  description="Rascunho demonstrativo dos termos de uso para avaliação da cliente."
+>
+  <Header professionalName={siteContent.professionalName} />
+  <main class="legal-page">
+    <article class="container legal-content">
+      <p class="eyebrow">Documento para avaliação</p>
+      <h1>Termos de Uso</h1>
+      <p class="draft-notice">Rascunho demonstrativo - sujeito a revisão antes da publicação definitiva.</p>
+      <h2>1. Finalidade do site</h2>
+      <p>Este site possui finalidade institucional e informativa. Seu conteúdo apresenta informações gerais sobre a profissional, áreas de atuação e canais oficiais de contato.</p>
+      <h2>2. Conteúdo informativo</h2>
+      <p>As informações publicadas não substituem análise jurídica individualizada. Cada situação depende da avaliação de fatos, documentos e circunstâncias próprias.</p>
+      <h2>3. Ausência de garantia de resultado</h2>
+      <p>O conteúdo do site não representa promessa ou garantia de resultado. A disponibilização de informações e canais de contato não cria automaticamente relação profissional.</p>
+      <h2>4. Contato por plataformas externas</h2>
+      <p>Links para WhatsApp, e-mail, Instagram ou outros canais externos podem direcionar a serviços de terceiros, sujeitos a termos e políticas próprios. A pessoa visitante deve verificar as condições dessas plataformas.</p>
+      <h2>5. Uso adequado</h2>
+      <p>Não é permitido utilizar o site ou seus canais para praticar atos ilícitos, transmitir conteúdo malicioso, tentar comprometer a segurança do ambiente ou violar direitos de terceiros.</p>
+      <h2>6. Propriedade intelectual</h2>
+      <p>Textos, identidade visual e demais materiais publicados no site não devem ser reproduzidos ou utilizados indevidamente, salvo quando autorizado ou permitido pela legislação aplicável.</p>
+      <h2>7. Atualizações</h2>
+      <p>Estes termos podem ser atualizados para refletir mudanças no site ou nas regras aplicáveis. A versão publicada deve informar a data da última atualização.</p>
+      <h2>8. Contato</h2>
+      <p><strong>PREENCHER ANTES DE PUBLICAR:</strong> informar canal oficial para dúvidas relacionadas ao site.</p>
+    </article>
+  </main>
+  <Footer professionalName={siteContent.professionalName} />
+</BaseLayout>

@@ -16,12 +16,20 @@ export interface OfficeLocation {
   mapUrl?: string;
 }
 
+export interface DemonstrationContact {
+  label: string;
+  value: string;
+}
+
 export interface SiteContent {
   professionalName: string;
   serviceLabel: string;
   heroTitle: string;
   heroDescription: string;
   biography: string;
+  demonstrationNotice: string;
+  demonstrationContacts: DemonstrationContact[];
+  oabExample: string;
   contacts: {
     whatsapp?: string;
     email?: string;

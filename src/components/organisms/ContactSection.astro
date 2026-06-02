@@ -5,10 +5,11 @@ import ContactLink from '../molecules/ContactLink.astro';
 
 interface Props {
   contacts: SiteContent['contacts'];
+  demonstrationContacts?: SiteContent['demonstrationContacts'];
   officeLocation?: SiteContent['officeLocation'];
 }
 
-const { contacts, officeLocation } = Astro.props;
+const { contacts, demonstrationContacts = [], officeLocation } = Astro.props;
 assertNoPlaceholderContacts(contacts);
 
 const channels = [
@@ -23,7 +24,7 @@ const isContactReady = hasOfficialContact(contacts);
 <section class="contact-section" id="contato" aria-labelledby="contact-title">
   <div class="container">
     <p class="eyebrow">Contato e localização</p>
-    <h2 id="contact-title">Fale com a Advogada Larissa.</h2>
+    <h2 id="contact-title">Canais de atendimento.</h2>
     <p>O atendimento é online e está disponível para todo o Brasil.</p>
 
     <div class="contact-grid">
@@ -35,9 +36,20 @@ const isContactReady = hasOfficialContact(contacts);
               {channels.map((channel) => <ContactLink href={channel.href} label={channel.label} />)}
             </div>
           ) : (
-            <p class="pending-contact" role="status">
-              Os canais oficiais serão publicados após aprovação da cliente.
-            </p>
+            <>
+              <p class="pending-contact" role="status">
+                Os canais abaixo são exemplos para demonstração e não estão disponíveis para contato.
+              </p>
+              <dl class="demonstration-contacts" aria-label="Exemplos não acionáveis de contato">
+                {demonstrationContacts.map((contact) => (
+                  <div>
+                    <dt>{contact.label}</dt>
+                    <dd>{contact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p class="example-label">Exemplo para demonstração · não acionável</p>
+            </>
           )
         }
       </article>
@@ -124,8 +136,45 @@ const isContactReady = hasOfficialContact(contacts);
     text-transform: uppercase;
   }
 
+  .contact-section > .container > .eyebrow {
+    color: var(--color-secondary-light);
+  }
+
   .pending-contact {
     max-width: 28rem;
+  }
+
+  .demonstration-contacts {
+    display: grid;
+    gap: var(--space-2);
+    margin-block: var(--space-3);
+  }
+
+  .demonstration-contacts div {
+    padding: var(--space-2) var(--space-3);
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-sm);
+  }
+
+  dt {
+    color: var(--color-secondary-light);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-surface);
+  }
+
+  .example-label {
+    color: var(--color-secondary-light);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   @media (min-width: 48rem) {

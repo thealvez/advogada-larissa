@@ -41,7 +41,11 @@ const { area } = Astro.props;
     </section>
   </main>
 
-  <ContactSection contacts={siteContent.contacts} officeLocation={siteContent.officeLocation} />
+  <ContactSection
+    contacts={siteContent.contacts}
+    demonstrationContacts={siteContent.demonstrationContacts}
+    officeLocation={siteContent.officeLocation}
+  />
   <Footer professionalName={siteContent.professionalName} />
 </BaseLayout>
 

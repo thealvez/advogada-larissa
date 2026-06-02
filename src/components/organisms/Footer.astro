@@ -7,8 +7,17 @@ const { professionalName } = Astro.props;
 ---
 
 <footer class="site-footer">
-  <div class="container">
+  <div class="container footer-grid">
     <p>{professionalName} · Atendimento jurídico online em todo o Brasil.</p>
+    <nav aria-label="Navegação do rodapé">
+      <a href="/#sobre">Sobre</a>
+      <a href="/#areas">Áreas de atuação</a>
+      <a href="/#atendimento">Como funciona</a>
+      <a href="/#contato">Contato</a>
+      <a href="/politica-de-privacidade/">Política de privacidade</a>
+      <a href="/termos-de-uso/">Termos de uso</a>
+    </nav>
+    <p class="demo-note">Versão demonstrativa · não representa publicação definitiva.</p>
   </div>
 </footer>
 
@@ -19,5 +28,35 @@ const { professionalName } = Astro.props;
     background: var(--color-primary);
     color: rgba(255, 255, 255, 0.72);
     font-size: 0.85rem;
+  }
+
+  .footer-grid,
+  nav {
+    display: flex;
+    gap: var(--space-3);
+  }
+
+  .footer-grid {
+    flex-direction: column;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  a {
+    color: var(--color-surface);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .demo-note {
+    color: var(--color-secondary-light);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 </style>

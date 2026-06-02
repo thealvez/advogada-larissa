@@ -11,12 +11,14 @@ describe('responsive header structure', () => {
     expect(headerSource).toContain('<nav');
     expect(headerSource).toContain('href="/#sobre"');
     expect(headerSource).toContain('href="/#areas"');
+    expect(headerSource).toContain('href="/#atendimento"');
     expect(headerSource).toContain('href="/#contato"');
   });
 
-  it('renders the approved provisional logo image', () => {
-    expect(headerSource).toContain('src="/images/logo-advogada-larissa.png"');
-    expect(headerSource).toContain('class="brand-logo"');
+  it('renders the provisional AL monogram instead of the editorial photo', () => {
+    expect(headerSource).toContain('class="brand-monogram"');
+    expect(headerSource).toContain('aria-hidden="true">AL</span>');
+    expect(headerSource).not.toContain('logo-advogada-larissa.png');
   });
 
   it('implements accessible mobile toggle behavior', () => {

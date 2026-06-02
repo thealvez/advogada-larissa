@@ -1,0 +1,49 @@
+---
+import Footer from '../components/organisms/Footer.astro';
+import Header from '../components/organisms/Header.astro';
+import { siteContent } from '../content/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={`Política de Privacidade | ${siteContent.professionalName}`}
+  description="Rascunho demonstrativo da política de privacidade para avaliação da cliente."
+>
+  <Header professionalName={siteContent.professionalName} />
+  <main class="legal-page">
+    <article class="container legal-content">
+      <p class="eyebrow">Documento para avaliação</p>
+      <h1>Política de Privacidade</h1>
+      <p class="draft-notice">Rascunho demonstrativo - sujeito a revisão antes da publicação definitiva.</p>
+      <h2>1. Objetivo</h2>
+      <p>Esta Política de Privacidade explica como os dados pessoais podem ser tratados durante o acesso ao site institucional de Larissa Azevedo e durante o contato voluntário realizado pelos canais oficiais publicados no site.</p>
+      <h2>2. Controladora</h2>
+      <p><strong>PREENCHER ANTES DE PUBLICAR:</strong> nome profissional ou razão aplicável, número completo da OAB e seccional, e canal oficial para solicitações relacionadas a privacidade.</p>
+      <h2>3. Dados tratados</h2>
+      <p>Na versão atual, o site possui conteúdo institucional e não disponibiliza formulário próprio de contato, área de login ou criação de conta. O site não deve ativar ferramentas de analytics ou cookies não essenciais sem avaliação prévia e atualização desta política.</p>
+      <p>Quando a pessoa visitante decide iniciar contato por um canal externo oficial, os dados enviados voluntariamente podem incluir nome, informações de contato, conteúdo da mensagem e documentos compartilhados pela própria pessoa.</p>
+      <h2>4. Finalidades</h2>
+      <ol>
+        <li>Responder solicitações de contato.</li>
+        <li>Compreender a demanda apresentada.</li>
+        <li>Organizar o atendimento inicial.</li>
+        <li>Cumprir obrigações legais, regulatórias e profissionais aplicáveis.</li>
+        <li>Proteger direitos e prevenir uso indevido dos canais de atendimento.</li>
+      </ol>
+      <h2>5. Compartilhamento e plataformas externas</h2>
+      <p>O site pode disponibilizar links para plataformas externas, como WhatsApp, provedor de e-mail e Instagram. O uso dessas plataformas também está sujeito aos termos e políticas dos respectivos fornecedores.</p>
+      <p>Dados pessoais não devem ser comercializados. Eventual compartilhamento deve ocorrer somente quando necessário para atendimento, cumprimento de obrigação legal ou regulatória, exercício regular de direitos ou outra hipótese juridicamente aplicável.</p>
+      <h2>6. Armazenamento e segurança</h2>
+      <p>Os dados devem ser mantidos pelo período necessário para atender as finalidades informadas e cumprir obrigações aplicáveis, com medidas razoáveis de segurança. Nenhum ambiente digital é completamente imune a riscos.</p>
+      <h2>7. Direitos da pessoa titular</h2>
+      <p>Nos termos da legislação aplicável, a pessoa titular pode solicitar informações e exercer direitos relacionados aos seus dados pessoais, incluindo confirmação da existência de tratamento, acesso, correção e demais direitos aplicáveis ao caso concreto.</p>
+      <h2>8. Canal de privacidade</h2>
+      <p><strong>PREENCHER ANTES DE PUBLICAR:</strong> informar e-mail ou outro canal oficial para solicitações relacionadas a dados pessoais.</p>
+      <h2>9. Atualizações</h2>
+      <p>Esta política pode ser atualizada para refletir mudanças no site, nos canais de atendimento ou nas exigências legais. A versão publicada deve informar a data da última atualização.</p>
+      <h2>10. Última atualização</h2>
+      <p><strong>PREENCHER NA APROVAÇÃO FINAL.</strong></p>
+    </article>
+  </main>
+  <Footer professionalName={siteContent.professionalName} />
+</BaseLayout>

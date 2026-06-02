@@ -34,11 +34,22 @@ import { siteContent } from '../content/site';
 
     <section class="intro" id="sobre" aria-labelledby="about-title">
       <div class="container intro-grid">
-        <p class="eyebrow">Apresentação institucional</p>
         <div>
+          <p class="eyebrow">Apresentação institucional</p>
           <h2 id="about-title">Atendimento jurídico acessível, onde você estiver.</h2>
           <p>{siteContent.biography}</p>
+          <p class="draft-label">Biografia em rascunho demonstrativo · sujeita a revisão</p>
         </div>
+        <figure class="editorial-figure">
+          <img
+            src="/images/estante-editorial-provisoria.png"
+            alt="Estante com livros e objetos decorativos iluminada em tons quentes"
+            width="856"
+            height="570"
+            loading="lazy"
+          />
+          <figcaption>Imagem editorial provisória para avaliação da cliente.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -55,7 +66,11 @@ import { siteContent } from '../content/site';
     <ProcessSection steps={siteContent.processSteps} />
   </main>
 
-  <ContactSection contacts={siteContent.contacts} officeLocation={siteContent.officeLocation} />
+  <ContactSection
+    contacts={siteContent.contacts}
+    demonstrationContacts={siteContent.demonstrationContacts}
+    officeLocation={siteContent.officeLocation}
+  />
   <Footer professionalName={siteContent.professionalName} />
 </BaseLayout>
 
@@ -113,6 +128,10 @@ import { siteContent } from '../content/site';
     box-shadow: var(--shadow-soft);
   }
 
+  .hero .eyebrow {
+    color: var(--color-secondary-light);
+  }
+
   .hero-card ul {
     margin: var(--space-4) 0 0;
     padding: 0;
@@ -131,6 +150,27 @@ import { siteContent } from '../content/site';
 
   .intro-grid {
     align-items: start;
+  }
+
+  .editorial-figure {
+    margin: 0;
+  }
+
+  .editorial-figure img {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+  }
+
+  figcaption,
+  .draft-label {
+    margin-top: var(--space-2);
+    color: var(--color-secondary-text);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .intro p,
@@ -156,7 +196,7 @@ import { siteContent } from '../content/site';
     }
 
     .intro-grid {
-      grid-template-columns: 0.7fr 1.3fr;
+      grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.95fr);
     }
 
     .area-grid {

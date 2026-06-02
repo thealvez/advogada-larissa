@@ -1,0 +1,47 @@
+schema: 1
+story: '3.4'
+story_title: Preparar Versao Demonstrativa para Apresentacao a Cliente
+gate: PASS
+status_reason: >-
+  The demonstration labels placeholders and draft legal content, renders
+  noindex,nofollow on shared pages, blocks crawling with robots.txt, and does not
+  advertise the technical sitemap. It is ready for demo-only deployment.
+reviewer: Quinn (@qa)
+updated: '2026-06-02T19:25:33Z'
+top_issues: []
+resolved_issues:
+  - id: DEMO-SEO-001
+    severity: RESOLVED
+    title: Public demo indexing protection
+    refs:
+      - src/layouts/BaseLayout.astro:19
+      - public/robots.txt:1
+    resolution: >-
+      Shared pages now render noindex,nofollow. robots.txt uses Disallow: / and
+      does not advertise sitemap.xml.
+  - id: DEMO-SEO-002
+    severity: RESOLVED
+    title: Automated anti-indexing regression coverage
+    refs:
+      - tests/unit/privacy-seo.test.ts:32
+    resolution: >-
+      Regression assertions require noindex,nofollow, Disallow: /, and absence
+      of Sitemap: in robots.txt.
+waiver:
+  active: false
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  unit_test_count: 24
+  build: PASS
+  static_page_count: 7
+  git_diff_check: PASS
+  http_smoke_check: PASS
+  security_static_scan: PASS
+  accessibility_contrast_check: PASS
+  coderabbit: UNAVAILABLE
+  browser_visual_check: UNAVAILABLE
+residual_risks:
+  - sitemap.xml remains publicly reachable as a technical verification asset but is not advertised in robots.txt.
+  - Definitive publication remains blocked until client placeholders and draft legal content are replaced and approved.

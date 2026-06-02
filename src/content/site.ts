@@ -1,13 +1,22 @@
 import type { SiteContent } from '../types/site';
 
 export const siteContent: SiteContent = {
-  professionalName: 'Advogada Larissa',
+  professionalName: 'Doutora Larissa Azevedo',
   serviceLabel: 'Atendimento online em todo o Brasil',
   heroTitle: 'Orientação jurídica com clareza e atenção ao seu caso.',
   heroDescription:
     'Atendimento jurídico online para apresentar caminhos possíveis com responsabilidade e atenção às particularidades de cada situação.',
   biography:
-    'A apresentação profissional completa será publicada após aprovação da cliente. Este espaço foi preparado para comunicar experiência, forma de atendimento e compromisso com uma orientação jurídica clara.',
+    'Larissa Azevedo oferece atendimento jurídico online para pessoas em todo o Brasil, com escuta atenta, comunicação clara e análise individualizada de cada situação. Sua atuação abrange questões previdenciárias, criminais, digitais e trabalhistas. O atendimento é conduzido com responsabilidade e respeito às particularidades de cada caso. As orientações jurídicas dependem da avaliação das informações e dos documentos apresentados, sem promessa de resultado.',
+  demonstrationNotice:
+    'Versão demonstrativa para avaliação da cliente. Conteúdo, identidade e dados de exemplo estão sujeitos a revisão antes da publicação definitiva.',
+  demonstrationContacts: [
+    { label: 'OAB', value: '09-009' },
+    { label: 'WhatsApp', value: '119888888' },
+    { label: 'E-mail', value: 'test@gmail.com' },
+    { label: 'Instagram', value: 'teste' },
+  ],
+  oabExample: '09-009',
   contacts: {},
   practiceAreas: [
     {
