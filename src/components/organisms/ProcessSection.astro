@@ -1,0 +1,91 @@
+---
+import type { ProcessStep } from '../../types/site';
+
+interface Props {
+  steps: ProcessStep[];
+}
+
+const { steps } = Astro.props;
+---
+
+<section class="process" id="atendimento" aria-labelledby="process-title">
+  <div class="container">
+    <p class="eyebrow">Como funciona</p>
+    <h2 id="process-title">Atendimento online com etapas claras.</h2>
+    <ol>
+      {steps.map((step, index) => (
+        <li>
+          <span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="process-note">
+      Cada orientação depende da análise das particularidades e dos documentos relacionados ao caso concreto.
+    </p>
+  </div>
+</section>
+
+<style>
+  .process {
+    padding-block: var(--space-8);
+    background: var(--color-surface);
+  }
+
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    line-height: 1.08;
+  }
+
+  h2 {
+    max-width: 16ch;
+    margin: var(--space-2) 0;
+    color: var(--color-primary);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    color: var(--color-primary);
+    font-size: 1.55rem;
+  }
+
+  ol {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-5) 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: var(--space-4);
+    border-top: 2px solid var(--color-secondary);
+    background: var(--color-background);
+  }
+
+  .step-number {
+    color: var(--color-secondary);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  li p,
+  .process-note {
+    color: var(--color-text-muted);
+  }
+
+  .process-note {
+    max-width: 48rem;
+    padding-left: var(--space-3);
+    border-left: 3px solid var(--color-secondary);
+  }
+
+  @media (min-width: 48rem) {
+    ol {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>

@@ -1,0 +1,17 @@
+schema: 1
+story: '2.1'
+story_title: Apresentar Areas de Atuacao
+gate: PASS
+status_reason: >-
+  Four informative practice areas are centralized, linked from the home page,
+  and generated as static routes without promotional outcome promises.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+residual_risks:
+  - Legal copy remains provisional and should be reviewed by the client before publication.

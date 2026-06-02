@@ -1,0 +1,17 @@
+schema: 1
+story: '2.2'
+story_title: Explicar o Processo de Atendimento Online
+gate: PASS
+status_reason: >-
+  The home page presents three configurable and responsive online-service steps
+  and explicitly states that guidance depends on analysis of the concrete case.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+residual_risks:
+  - Process wording remains provisional and should be reviewed by the client.

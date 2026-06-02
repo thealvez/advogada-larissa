@@ -1,0 +1,23 @@
+---
+interface Props {
+  professionalName: string;
+}
+
+const { professionalName } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>{professionalName} · Atendimento jurídico online em todo o Brasil.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: var(--space-3);
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: var(--color-primary);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,0 +1,136 @@
+---
+import { assertNoPlaceholderContacts, hasOfficialContact } from '../../lib/contact-publication';
+import type { SiteContent } from '../../types/site';
+import ContactLink from '../molecules/ContactLink.astro';
+
+interface Props {
+  contacts: SiteContent['contacts'];
+  officeLocation?: SiteContent['officeLocation'];
+}
+
+const { contacts, officeLocation } = Astro.props;
+assertNoPlaceholderContacts(contacts);
+
+const channels = [
+  contacts.whatsapp && { href: contacts.whatsapp, label: 'WhatsApp' },
+  contacts.email && { href: `mailto:${contacts.email}`, label: 'E-mail' },
+  contacts.instagram && { href: contacts.instagram, label: 'Instagram' },
+].filter((channel): channel is { href: string; label: string } => Boolean(channel));
+
+const isContactReady = hasOfficialContact(contacts);
+---
+
+<section class="contact-section" id="contato" aria-labelledby="contact-title">
+  <div class="container">
+    <p class="eyebrow">Contato e localização</p>
+    <h2 id="contact-title">Fale com a Advogada Larissa.</h2>
+    <p>O atendimento é online e está disponível para todo o Brasil.</p>
+
+    <div class="contact-grid">
+      <article>
+        <p class="card-label">Canais de contato</p>
+        {
+          isContactReady ? (
+            <div class="contact-links" aria-label="Canais oficiais de contato">
+              {channels.map((channel) => <ContactLink href={channel.href} label={channel.label} />)}
+            </div>
+          ) : (
+            <p class="pending-contact" role="status">
+              Os canais oficiais serão publicados após aprovação da cliente.
+            </p>
+          )
+        }
+      </article>
+
+      <article>
+        <p class="card-label">Localização</p>
+        {
+          officeLocation ? (
+            <>
+              <h3>{officeLocation.label}</h3>
+              <address>{officeLocation.address}</address>
+              {officeLocation.mapUrl && <ContactLink href={officeLocation.mapUrl} label="Ver no mapa" />}
+            </>
+          ) : (
+            <>
+              <h3>Atendimento online nacional</h3>
+              <p>O endereço físico será publicado somente após confirmação da cliente.</p>
+            </>
+          )
+        }
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding-block: var(--space-7);
+    background: var(--color-primary);
+    color: var(--color-surface);
+  }
+
+  .contact-grid,
+  .contact-links {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .contact-grid {
+    margin-top: var(--space-5);
+  }
+
+  article {
+    padding: var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    line-height: 1.08;
+  }
+
+  h2 {
+    max-width: 16ch;
+    margin: var(--space-2) 0;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    margin-block: var(--space-2);
+    font-size: 1.65rem;
+  }
+
+  p,
+  address {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  address {
+    margin-bottom: var(--space-3);
+    font-style: normal;
+  }
+
+  .card-label {
+    margin-top: 0;
+    color: var(--color-secondary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .pending-contact {
+    max-width: 28rem;
+  }
+
+  @media (min-width: 48rem) {
+    .contact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

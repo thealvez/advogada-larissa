@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/organisms/Header.astro';
+import PracticeAreaCard from '../components/molecules/PracticeAreaCard.astro';
+import ProcessSection from '../components/organisms/ProcessSection.astro';
+import ContactSection from '../components/organisms/ContactSection.astro';
+import Footer from '../components/organisms/Footer.astro';
+import { siteContent } from '../content/site';
+---
+
+<BaseLayout
+  title={`${siteContent.professionalName} | Atendimento Jurídico Online`}
+  description="Site institucional provisório da Advogada Larissa, com atendimento jurídico online em todo o Brasil."
+>
+  <Header professionalName={siteContent.professionalName} />
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">{siteContent.serviceLabel}</p>
+          <h1 id="hero-title">{siteContent.heroTitle}</h1>
+          <p class="hero-copy">{siteContent.heroDescription}</p>
+          <a class="button" href="#contato">Conheça os canais de contato</a>
+        </div>
+        <aside class="hero-card" aria-label="Areas atendidas">
+          <p class="eyebrow">Áreas de atuação</p>
+          <ul>
+            {siteContent.practiceAreas.map((area) => <li>{area.title}</li>)}
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="intro" id="sobre" aria-labelledby="about-title">
+      <div class="container intro-grid">
+        <p class="eyebrow">Apresentação institucional</p>
+        <div>
+          <h2 id="about-title">Atendimento jurídico acessível, onde você estiver.</h2>
+          <p>{siteContent.biography}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas" id="areas" aria-labelledby="areas-title">
+      <div class="container">
+        <p class="eyebrow">Atuação jurídica</p>
+        <h2 id="areas-title">Áreas de atuação</h2>
+        <div class="area-grid">
+          {siteContent.practiceAreas.map((area) => <PracticeAreaCard area={area} />)}
+        </div>
+      </div>
+    </section>
+
+    <ProcessSection steps={siteContent.processSteps} />
+  </main>
+
+  <ContactSection contacts={siteContent.contacts} officeLocation={siteContent.officeLocation} />
+  <Footer professionalName={siteContent.professionalName} />
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(4rem, 10vw, 8rem);
+    background:
+      linear-gradient(135deg, rgba(23, 59, 63, 0.98), rgba(23, 59, 63, 0.9)),
+      var(--color-primary);
+    color: var(--color-surface);
+  }
+
+  .hero-grid,
+  .intro-grid {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    line-height: 1.08;
+  }
+
+  h1 {
+    max-width: 12ch;
+    margin: var(--space-3) 0;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 600;
+  }
+
+  h2 {
+    margin: var(--space-2) 0;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    color: var(--color-primary);
+    font-size: 1.7rem;
+  }
+
+  .hero-copy {
+    max-width: 42rem;
+    margin-bottom: var(--space-5);
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .hero-card {
+    padding: var(--space-5);
+    border: 1px solid rgba(198, 165, 107, 0.48);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .hero-card ul {
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero-card li {
+    padding-block: var(--space-3);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .intro,
+  .areas {
+    padding-block: var(--space-8);
+  }
+
+  .intro-grid {
+    align-items: start;
+  }
+
+  .intro p,
+  .area-grid p,
+  footer p {
+    color: var(--color-text-muted);
+  }
+
+  .areas {
+    background: var(--color-accent);
+  }
+
+  .area-grid {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  @media (min-width: 48rem) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.7fr);
+      align-items: center;
+    }
+
+    .intro-grid {
+      grid-template-columns: 0.7fr 1.3fr;
+    }
+
+    .area-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+  @media (min-width: 64rem) {
+    .area-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+</style>

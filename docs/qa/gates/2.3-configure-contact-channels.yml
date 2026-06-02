@@ -1,0 +1,18 @@
+schema: 1
+story: '2.3'
+story_title: Disponibilizar Canais de Contato Configuraveis
+gate: PASS
+status_reason: >-
+  Contact channels and physical location are centralized and rendered through
+  a reusable section. Missing official data produces safe fallbacks with no
+  invalid links, fictitious addresses, or map URLs.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+residual_risks:
+  - Official client channels and physical address, if applicable, must be supplied before public release.

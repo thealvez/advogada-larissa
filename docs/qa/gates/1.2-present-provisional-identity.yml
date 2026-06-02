@@ -1,0 +1,19 @@
+schema: 1
+story: '1.2'
+story_title: Apresentar a Identidade Provisoria e a Proposta Institucional
+gate: PASS
+status_reason: >-
+  Provisional institutional content is centralized and consumed by the home page.
+  Tests confirm the approved identity, national online service, four practice areas,
+  and absence of fictitious contacts.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+  coderabbit: UNAVAILABLE
+residual_risks:
+  - Official client biography and contact details remain pending for release.

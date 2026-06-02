@@ -1,0 +1,26 @@
+schema: 1
+story: '1.1'
+story_title: Inicializar o Frontend Institucional
+gate: PASS
+status_reason: >-
+  Functional quality gates pass and the footer contrast concern was corrected.
+  Residual vulnerabilities are restricted to the development-only check toolchain.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+  coderabbit: UNAVAILABLE
+issues:
+  - id: QA-1.1-001
+    severity: medium
+    file: src/pages/index.astro
+    description: Footer paragraph contrast is insufficient on the primary background.
+    suggested_owner: '@dev'
+    status: resolved
+residual_risks:
+  - Five moderate vulnerabilities remain in the development-only @astrojs/check dependency chain.
+  - Mobile navigation behavior is deferred to Story 1.3.

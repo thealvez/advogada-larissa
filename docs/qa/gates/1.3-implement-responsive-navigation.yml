@@ -1,0 +1,19 @@
+schema: 1
+story: '1.3'
+story_title: Implementar Navegacao Responsiva
+gate: PASS
+status_reason: >-
+  The reusable header preserves essential navigation links in the HTML and adds
+  a minimal accessible mobile menu with synchronized state, Escape handling,
+  link-close behavior, and visible focus styles.
+reviewer: Quinn (@qa)
+updated: '2026-05-30'
+evidence:
+  lint: PASS
+  typecheck: PASS
+  unit_tests: PASS
+  build: PASS
+  http_smoke_check: PASS
+  coderabbit: UNAVAILABLE
+residual_risks:
+  - Browser-level interaction testing can be added when the interface grows beyond the current static header.

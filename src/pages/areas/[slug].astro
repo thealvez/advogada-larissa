@@ -1,0 +1,89 @@
+---
+import Header from '../../components/organisms/Header.astro';
+import ContactSection from '../../components/organisms/ContactSection.astro';
+import Footer from '../../components/organisms/Footer.astro';
+import { siteContent } from '../../content/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import type { PracticeArea } from '../../types/site';
+
+export function getStaticPaths() {
+  return siteContent.practiceAreas.map((area) => ({
+    params: { slug: area.slug },
+    props: { area },
+  }));
+}
+
+interface Props {
+  area: PracticeArea;
+}
+
+const { area } = Astro.props;
+---
+
+<BaseLayout
+  title={`${area.title} | ${siteContent.professionalName}`}
+  description={area.summary}
+>
+  <Header professionalName={siteContent.professionalName} />
+
+  <main>
+    <section class="area-hero" aria-labelledby="area-title">
+      <div class="container">
+        <a class="back-link" href="/#areas">← Voltar para áreas de atuação</a>
+        <p class="eyebrow">Área de atuação</p>
+        <h1 id="area-title">{area.title}</h1>
+        <p class="area-description">{area.description}</p>
+        <p class="case-note">
+          A orientação jurídica depende da análise das particularidades e dos documentos de cada caso.
+        </p>
+        <a class="button" href="/#contato">Ver canais de contato</a>
+      </div>
+    </section>
+  </main>
+
+  <ContactSection contacts={siteContent.contacts} officeLocation={siteContent.officeLocation} />
+  <Footer professionalName={siteContent.professionalName} />
+</BaseLayout>
+
+<style>
+  .area-hero {
+    min-height: calc(100vh - 12rem);
+    padding-block: clamp(3rem, 9vw, 7rem);
+  }
+
+  .area-hero .container {
+    max-width: 54rem;
+    margin-inline: auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: var(--space-6);
+    color: var(--color-primary);
+    font-weight: 800;
+    text-decoration-color: var(--color-secondary);
+    text-underline-offset: 0.3em;
+  }
+
+  h1 {
+    max-width: 14ch;
+    margin: var(--space-3) 0;
+    color: var(--color-primary);
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1.08;
+  }
+
+  .area-description {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+  }
+
+  .case-note {
+    margin-block: var(--space-5);
+    padding-left: var(--space-3);
+    border-left: 3px solid var(--color-secondary);
+  }
+
+</style>
