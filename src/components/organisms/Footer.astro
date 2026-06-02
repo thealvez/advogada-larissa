@@ -23,10 +23,9 @@ const { professionalName } = Astro.props;
 
 <style>
   .site-footer {
-    padding-block: var(--space-3);
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    background: var(--color-primary);
-    color: rgba(255, 255, 255, 0.72);
+    padding-block: var(--space-5);
+    background: var(--color-primary-soft);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.85rem;
   }
 
@@ -46,6 +45,12 @@ const { professionalName } = Astro.props;
 
   a {
     color: var(--color-surface);
+    text-underline-offset: 0.22em;
+  }
+
+  a:hover {
+    color: var(--color-secondary-light);
+    text-decoration: underline;
   }
 
   p {

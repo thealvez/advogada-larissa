@@ -77,10 +77,8 @@ import { siteContent } from '../content/site';
 <style>
   .hero {
     padding-block: clamp(4rem, 10vw, 8rem);
-    background:
-      linear-gradient(135deg, rgba(23, 59, 63, 0.98), rgba(23, 59, 63, 0.9)),
-      var(--color-primary);
-    color: var(--color-surface);
+    background: var(--color-background);
+    color: var(--color-text);
   }
 
   .hero-grid,
@@ -101,12 +99,14 @@ import { siteContent } from '../content/site';
     margin: var(--space-3) 0;
     font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 600;
+    color: var(--color-primary);
   }
 
   h2 {
     margin: var(--space-2) 0;
     font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 600;
+    color: var(--color-primary);
   }
 
   h3 {
@@ -117,19 +117,19 @@ import { siteContent } from '../content/site';
   .hero-copy {
     max-width: 42rem;
     margin-bottom: var(--space-5);
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--color-text-muted);
   }
 
   .hero-card {
     padding: var(--space-5);
-    border: 1px solid rgba(198, 165, 107, 0.48);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--color-surface);
     box-shadow: var(--shadow-soft);
   }
 
   .hero .eyebrow {
-    color: var(--color-secondary-light);
+    color: var(--color-primary);
   }
 
   .hero-card ul {
@@ -140,7 +140,7 @@ import { siteContent } from '../content/site';
 
   .hero-card li {
     padding-block: var(--space-3);
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid var(--color-border);
   }
 
   .intro,
@@ -180,7 +180,7 @@ import { siteContent } from '../content/site';
   }
 
   .areas {
-    background: var(--color-accent);
+    background: var(--color-surface);
   }
 
   .area-grid {

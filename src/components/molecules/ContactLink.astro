@@ -19,16 +19,24 @@ const { href, label } = Astro.props;
     justify-content: space-between;
     gap: var(--space-4);
     min-height: 3.25rem;
-    padding: var(--space-3);
+    padding: var(--space-3) var(--space-4);
     border: 1px solid rgba(255, 255, 255, 0.34);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
     color: var(--color-surface);
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
+    transition:
+      background-color 150ms ease-out,
+      color 150ms ease-out,
+      transform 150ms ease-out;
   }
 
   .contact-link:hover {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-secondary-light);
+  }
+
+  .contact-link:active {
+    transform: scale(0.95);
   }
 </style>

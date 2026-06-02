@@ -74,7 +74,7 @@ const { professionalName } = Astro.props;
     position: relative;
     z-index: 10;
     border-bottom: 1px solid var(--color-border);
-    background: rgba(247, 245, 240, 0.98);
+    background: rgba(255, 255, 255, 0.94);
   }
 
   .header-inner,
@@ -100,8 +100,8 @@ const { professionalName } = Astro.props;
     width: 3rem;
     height: 3rem;
     place-items: center;
-    border: 1px solid var(--color-secondary);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-primary-soft);
+    border-radius: var(--radius-pill);
     background: var(--color-primary);
     color: var(--color-surface);
     font-family: var(--font-serif);
@@ -125,10 +125,16 @@ const { professionalName } = Astro.props;
   }
 
   nav a {
-    color: var(--color-primary);
+    color: var(--color-primary-soft);
     font-size: 0.9rem;
     font-weight: 700;
     text-decoration: none;
+    text-underline-offset: 0.24em;
+  }
+
+  nav a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .menu-toggle {
@@ -136,7 +142,7 @@ const { professionalName } = Astro.props;
     width: 3rem;
     height: 3rem;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
     background: transparent;
     cursor: pointer;
   }
@@ -181,7 +187,7 @@ const { professionalName } = Astro.props;
       gap: 0;
       padding: var(--space-2);
       border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-pill);
       background: var(--color-surface);
       box-shadow: var(--shadow-soft);
     }

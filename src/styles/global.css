@@ -13,7 +13,7 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-sans);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 a {
@@ -31,7 +31,8 @@ a:focus-visible {
 }
 
 .eyebrow {
-  color: var(--color-secondary-text);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -40,9 +41,9 @@ a:focus-visible {
 
 .demo-banner {
   padding-block: var(--space-2);
-  background: #fff0c2;
-  color: #513b12;
-  font-size: 0.82rem;
+  background: var(--color-primary-soft);
+  color: var(--color-surface);
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -72,9 +73,9 @@ a:focus-visible {
 
 .draft-notice {
   padding: var(--space-3);
-  border-left: 4px solid var(--color-secondary-text);
-  background: #fff0c2;
-  color: #513b12;
+  border-left: 4px solid var(--color-secondary);
+  background: var(--color-surface);
+  color: var(--color-primary-soft);
   font-weight: 800;
 }
 
@@ -82,20 +83,37 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3rem;
-  padding: 0.75rem 1.25rem;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.5rem;
   border: 1px solid var(--color-secondary);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   background: var(--color-secondary);
-  color: var(--color-primary);
-  font-weight: 800;
+  color: var(--color-surface);
+  font-weight: 700;
   text-decoration: none;
-  transition: background-color 150ms ease-out, color 150ms ease-out;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    transform 150ms ease-out;
 }
 
 .button:hover {
   background: transparent;
   color: var(--color-secondary);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--color-secondary);
+}
+
+.button--ghost:hover {
+  background: var(--color-secondary);
+  color: var(--color-surface);
 }
 
 @media (prefers-reduced-motion: reduce) {
